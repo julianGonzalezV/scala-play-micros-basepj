@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+#:::::::::::::::::::::::::::::::::::::::::::::
+# ROUTES LIST:::::::::::::::::::
+#:::::::::::::::::::::::::::::::::::::::::::::
+GET     /personasDIEngine                               controllers.ConsultaController.consultarPersonaDIEngine
+GET     /personasReader                                 controllers.ConsultaController.consultarPersonaReader
+POST    /insertarPersona                                controllers.ComandoController.insertarPersonaReader()
+GET     /ejemploSaludo                                  controllers.ConsultaController.ejecutarSaludoPrueba
+GET     /ejemploSaludoFuture                            controllers.ConsultaController.ejecutarSaludoPruebaFuture
+GET     /personas/:apellido                             controllers.ConsultaController.consultarPorApellido(apellido)
+GET     /totalPersonas                                  controllers.ConsultaController.count
+GET     /totalPorApellido/:apellido                     controllers.ConsultaController.countPorApellido(apellido)
+GET     /ejercicio/personas                             controllers.PersonController.consultarPersonas()
+GET     /ejercicio/filter/:age/:name                    controllers.PersonController.ageNameFilter(age:Int, name)
+GET     /ejercicio/personasSort                         controllers.PersonController.sortedPersons()
+GET     /ejercicio/personasCityAge                      controllers.PersonController.addressByAvgAge()
+POST    /ejercicio/personasInsert                       controllers.PersonController.insertPerson()
+DELETE  /ejercicio/personasDelete/$id<[0-9]+>           controllers.PersonController.delete(id: Int)
+PUT     /ejercicio/updatePerson                         controllers.PersonController.updatePerson()
